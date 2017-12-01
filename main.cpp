@@ -2,8 +2,8 @@
 #include <time.h>
 using namespace sf;
 
-const int W=600;
-const int H=480;
+const int W=1000;
+const int H=1000;
 int speed = 2;
 bool field[W][H]={0};
 
