@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1512159598 source:f:\repofp\tron_legancy\tron\main.cpp
+	<SFML/Graphics.hpp>
+	<time.h>
+
