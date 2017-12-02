@@ -1,14 +1,26 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <time.h>
 #include <iostream>
+
 #include "Menu.h"
+#include "Background_Audio.h"
+#include "Options.h"
+#include "About.h"
+
 
 using namespace sf;
 
+Background_Audio background;
 const int W=600;
 const int H=500;
 int speed = 1;
 bool field[W][H]={0};
+
+void a();
+void MainMenu();
+void OptionsFunction();
+void AboutFunction();
 
 struct player
 { int x,y,dir;
@@ -37,14 +49,14 @@ struct player
 
 void a()
 {
-    	srand(time(0));
+    srand(time(0));
 
     RenderWindow window(VideoMode(W, H), "The Tron!");
     window.setFramerateLimit(60);
 
-	Texture texture;
+	sf::Texture texture;
 	texture.loadFromFile("background.jpg");
-	Sprite sBackground(texture);
+	sf::Sprite sBackground(texture);
 
     player p1(Color::Red), p2(Color::Green);
 
@@ -58,7 +70,7 @@ void a()
 	bool Game=1;
 
 	Font font;
-	font.loadFromFile("montserrat.bold.tff");
+	font.loadFromFile("comicsans.tff");
 	Text text("YOU WIN!",font,35);
 	text.setPosition(W/2-80,20);
 
@@ -78,7 +90,13 @@ void a()
                 window.close();
 		}
 
-		if (Keyboard::isKeyPressed(Keyboard::Left)) if (p1.dir!=2) p1.dir=1;
+		if (Keyboard::isKeyPressed(Keyboard::Left)) if (p1.dir!=2)
+        {
+            p1.dir=1;
+            sf::Music music;
+            if (!music.openFromFile("effect.wav")) // error
+            music.play();
+        }
 	    if (Keyboard::isKeyPressed(Keyboard::Right)) if (p1.dir!=1)  p1.dir=2;
 	    if (Keyboard::isKeyPressed(Keyboard::Up)) if (p1.dir!=0) p1.dir=3;
 		if (Keyboard::isKeyPressed(Keyboard::Down)) if (p1.dir!=3) p1.dir=0;
@@ -87,6 +105,14 @@ void a()
 	    if (Keyboard::isKeyPressed(Keyboard::D)) if (p2.dir!=1)  p2.dir=2;
 	    if (Keyboard::isKeyPressed(Keyboard::W)) if (p2.dir!=0) p2.dir=3;
 		if (Keyboard::isKeyPressed(Keyboard::S)) if (p2.dir!=3) p2.dir=0;
+
+		if (Keyboard::isKeyPressed(Keyboard::Q))
+        {
+            window.clear();
+            window.close();
+            MainMenu();
+
+        }
 
 		if (!Game)
         {
@@ -132,16 +158,20 @@ void a()
 
 }
 
-int main()
+void MainMenu()
 {
+
     srand(time(0));
-	sf::RenderWindow window(sf::VideoMode(600, 600), "TRON");
+    sf::RenderWindow window(sf::VideoMode(600, 600), "TRON");
 	Menu menu(window.getSize().x, window.getSize().y);
+
+    sf::Texture texture;
+	texture.loadFromFile("background.jpg");
+	Sprite sBackground(texture);
 
 	while (window.isOpen())
 	{
 		sf::Event event;
-
 		while (window.pollEvent(event))
 		{
 			switch (event.type)
@@ -167,7 +197,10 @@ int main()
 						a();
 						break;
 					case 1:
-						std::cout << "Option button has been pressed" << std::endl;
+						std::cout << "Options button has been pressed" << std::endl;
+                        window.clear();
+                        window.close();
+						OptionsFunction();
 						break;
 					case 2:
 						window.close();
@@ -190,5 +223,130 @@ int main()
 		menu.draw(window);
 		window.display();
 	}
-    return 0;
+}
+
+void OptionsFunction()
+{
+
+    srand(time(0));
+    sf::RenderWindow window(sf::VideoMode(600, 600), "TRON");
+	Options menu(window.getSize().x, window.getSize().y);
+
+    sf::Texture texture;
+	texture.loadFromFile("background.jpg");
+	Sprite sBackground(texture);
+
+	while (window.isOpen())
+	{
+		sf::Event event;
+
+		while (window.pollEvent(event))
+		{
+			switch (event.type)
+			{
+			case sf::Event::KeyReleased:
+				switch (event.key.code)
+				{
+				case sf::Keyboard::Up:
+					menu.MoveUp();
+					break;
+
+				case sf::Keyboard::Down:
+					menu.MoveDown();
+					break;
+
+				case sf::Keyboard::Return:
+					switch (menu.GetPressedItem())
+					{
+					case 0:
+                        background.disablemusic();
+						break;
+					case 1:
+						std::cout << "About button has been pressed" << std::endl;
+                        window.clear();
+						window.close();
+						AboutFunction();
+						break;
+					case 2:
+						MainMenu();
+						break;
+					}
+
+					break;
+				}
+
+				break;
+			case sf::Event::Closed:
+				window.close();
+
+				break;
+
+			}
+		}
+
+		window.clear();
+		menu.draw(window);
+		window.display();
+	}
+}
+
+void AboutFunction()
+{
+
+    srand(time(0));
+    sf::RenderWindow window(sf::VideoMode(600, 600), "TRON");
+	About menu(window.getSize().x, window.getSize().y);
+
+    sf::Texture texture;
+	texture.loadFromFile("background.jpg");
+	Sprite sBackground(texture);
+
+	while (window.isOpen())
+	{
+		sf::Event event;
+
+		while (window.pollEvent(event))
+		{
+			switch (event.type)
+			{
+			case sf::Event::KeyReleased:
+				switch (event.key.code)
+				{
+				case sf::Keyboard::Q:
+                    std::cout<< "Back to Main Menu"<< std::endl;
+
+				case sf::Keyboard::Return:
+					switch (menu.GetPressedItem())
+					{
+					case 0:
+						std::cout << "Play button has been pressed" << std::endl;
+						window.clear();
+						window.close();
+						MainMenu();
+						break;
+					}
+
+					break;
+				}
+
+				break;
+			case sf::Event::Closed:
+				window.close();
+
+				break;
+
+			}
+		}
+
+		window.clear();
+		menu.draw(window);
+		window.display();
+	}
+}
+
+int main()
+{
+    background.enablebackgroundmusic();
+    MainMenu();
+
 }
