@@ -36,7 +36,7 @@ int main()
 {
 	srand(time(0));
 
-    RenderWindow window(VideoMode(W, H), "The Tron Game!");
+    RenderWindow window(VideoMode(W, H), "The Tron!");
     window.setFramerateLimit(60);
 
 	Texture texture;
