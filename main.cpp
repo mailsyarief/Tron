@@ -35,7 +35,7 @@ void a()
 	texture.loadFromFile("background.jpg");
 	sf::Sprite sBackground(texture);
 
-    Player p1(Color::Red), p2(Color::Green);
+    Player p1(Color::Yellow), p2(Color::Cyan);
 
 	Sprite sprite;
 	RenderTexture t;
@@ -53,6 +53,8 @@ void a()
     Text text("YOU WIN!",font,35);
 	text.setPosition(W/2-80,20);
 
+    Text text2("press Q = quit, press R = restart",font,35);
+    text2.setPosition(W/2-H/2,H/2+140);
 
 	bool Game=1;
 
@@ -104,6 +106,7 @@ void a()
 		if (!Game)
         {
             window.draw(text);
+            window.draw(text2);
             window.display();
             continue;
         }
@@ -111,8 +114,8 @@ void a()
 		for(int i=0;i<speed;i++)
 		{
 			p1.tick(); p2.tick();
-			if (field[p1.x][p1.y]==1) {Game=0; text.setColor(p2.color);}
-			if (field[p2.x][p2.y]==1) {Game=0; text.setColor(p1.color);}
+			if (field[p1.x][p1.y]==1) {Game=0; text.setColor(p2.color); text2.setColor(p2.color);}
+			if (field[p2.x][p2.y]==1) {Game=0; text.setColor(p1.color); text2.setColor(p1.color);}
 			field[p1.x][p1.y]=1;
 			field[p2.x][p2.y]=1;
 
