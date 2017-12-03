@@ -42,14 +42,19 @@ void a()
 	t.create(W, H);
 	t.setSmooth(true);
 	sprite.setTexture(t.getTexture());
-    t.clear();  t.draw(sBackground);
+    t.clear();
+    t.draw(sBackground);
+
+	sf::Font font;
+    if (!font.loadFromFile("Sansation_Regular.ttf"))
+    {
+        // error...
+    }
+    Text text("YOU WIN!",font,35);
+	text.setPosition(W/2-80,20);
+
 
 	bool Game=1;
-
-	Font font;
-	font.loadFromFile("comicsans.tff");
-	Text text("YOU WIN!",font,35);
-	text.setPosition(W/2-80,20);
 
 	Shader* shader = new Shader;
 	shader->loadFromFile("shader.frag",Shader::Fragment);
@@ -83,12 +88,17 @@ void a()
 	    if (Keyboard::isKeyPressed(Keyboard::W)) if (p2.dir!=0) p2.dir=3;
 		if (Keyboard::isKeyPressed(Keyboard::S)) if (p2.dir!=3) p2.dir=0;
 
-		if (Keyboard::isKeyPressed(Keyboard::Q))
+        if (Keyboard::isKeyPressed(Keyboard::Q))
         {
             window.clear();
             window.close();
             MainMenu();
-
+        }
+        if (Keyboard::isKeyPressed(Keyboard::R))
+        {
+            window.clear();
+            window.close();
+            a();
         }
 
 		if (!Game)
@@ -101,19 +111,8 @@ void a()
 		for(int i=0;i<speed;i++)
 		{
 			p1.tick(); p2.tick();
-			if (field[p1.x][p1.y]==1)
-			{
-                Game=0;
-			    text.setColor(p2.color);
-			    window.draw(text);
-			}
-			if (field[p2.x][p2.y]==1)
-            {
-                Game=0;
-                text.setColor(p1.color);
-                window.draw(text);
-
-            }
+			if (field[p1.x][p1.y]==1) {Game=0; text.setColor(p2.color);}
+			if (field[p2.x][p2.y]==1) {Game=0; text.setColor(p1.color);}
 			field[p1.x][p1.y]=1;
 			field[p2.x][p2.y]=1;
 
@@ -126,6 +125,9 @@ void a()
 			shader->setParameter("frag_LightColor",p2.getColor());
 			t.draw(sprite, states);
 		}
+
+
+
 
 	   ////// draw  ///////
 		window.clear();
@@ -144,7 +146,7 @@ void MainMenu()
 
     sf::Texture texture;
 	texture.loadFromFile("background.jpg");
-	Sprite sBackground(texture);
+	Sprite BBackground(texture);
 
 	while (window.isOpen())
 	{
@@ -195,6 +197,9 @@ void MainMenu()
 
 			}
 		}
+
+		RenderTexture bg;
+		bg.draw(BBackground);
 
 		window.clear();
 		menu.draw(window);
