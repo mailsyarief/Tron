@@ -7,6 +7,7 @@
 #include "Background_Audio.h"
 #include "Options.h"
 #include "About.h"
+#include "Player.h"
 
 
 using namespace sf;
@@ -22,7 +23,7 @@ void MainMenu();
 void OptionsFunction();
 void AboutFunction();
 
-struct player
+/*struct player
 { int x,y,dir;
   Color color;
   player(Color c)
@@ -45,7 +46,7 @@ struct player
 
   Vector3f getColor()
   {return Vector3f(color.r,color.g,color.b);}
-};
+};*/
 
 void a()
 {
@@ -58,7 +59,7 @@ void a()
 	texture.loadFromFile("background.jpg");
 	sf::Sprite sBackground(texture);
 
-    player p1(Color::Red), p2(Color::Green);
+    Player p1(Color::Red), p2(Color::Green);
 
 	Sprite sprite;
 	RenderTexture t;
