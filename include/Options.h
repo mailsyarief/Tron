@@ -15,6 +15,7 @@ public:
 	void MoveUp();
 	void MoveDown();
 	int GetPressedItem() { return selectedItemIndex; }
+	void disablemusic_notif();
 
 private:
 	int selectedItemIndex;
