@@ -2,8 +2,13 @@
 #define MENU_H
 
 #include "SFML/Graphics.hpp"
+#include <iostream>
+#include <string.h>
+#include <stdio.h>
+
 #define MAX_NUMBER_OF_ITEMS 4
 
+using namespace std;
 class Menu
 {
 public:
@@ -14,7 +19,6 @@ public:
 	void MoveUp();
 	void MoveDown();
 	int GetPressedItem() { return selectedItemIndex; }
-
 private:
 	int selectedItemIndex;
 	sf::Font font;

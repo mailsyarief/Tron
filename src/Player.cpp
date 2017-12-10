@@ -16,10 +16,26 @@ Player::Player(sf::Color c)
 
 void Player::tick()
 {
-    if (dir==0) y+=1;
-    if (dir==1) x-=1;
-    if (dir==2) x+=1;
-    if (dir==3) y-=1;
+    if (dir==0)
+    {
+        y+=1; //ATAS
+        statusarah = 1;
+    }
+    if (dir==1)
+    {
+        x-=1; //KIRI
+        statusarah = 2;
+    }
+    if (dir==2)
+    {
+        x+=1; //KANAN
+        statusarah = 3;
+    }
+    if (dir==3)
+    {
+        y-=1; //BAWAH
+        statusarah = 4;
+    }
 
 	if (x>=W) x=0;  if (x<0) x=W-1;
     if (y>=H) y=0;  if (y<0) y=H-1;

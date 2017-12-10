@@ -56,7 +56,7 @@ void a()
 	text.setPosition(W/2-90,H/2-40);
 
     Text text2("Tekan Q untuk keluar, Tekan R untuk restart game",font,20);
-    text2.setPosition(W-550,H-60);
+    text2.setPosition(300,600);
 
     Text text3("Player 1 Color : White | Player 2 Color : Red",font,18);
     text3.setPosition(W-500,H-30);
@@ -85,42 +85,42 @@ void a()
 
 		if (Keyboard::isKeyPressed(Keyboard::Left))
         {
-            background.buttonsound();
+            if (p1.statusarah != 2 && p1.statusarah != 3)background.buttonsound();
             if (p1.dir!=2) p1.dir=1;
         }
 	    if (Keyboard::isKeyPressed(Keyboard::Right))
         {
-            background.buttonsound();
+            if (p1.statusarah != 3 && p1.statusarah != 2)background.buttonsound();
             if (p1.dir!=1)  p1.dir=2;
         }
 	    if (Keyboard::isKeyPressed(Keyboard::Up))
         {
-            background.buttonsound();
+            if (p1.statusarah != 1 && p1.statusarah != 4)background.buttonsound();
             if (p1.dir!=0) p1.dir=3;
         }
 		if (Keyboard::isKeyPressed(Keyboard::Down))
         {
-            background.buttonsound();
+            if (p1.statusarah != 4 && p1.statusarah != 1)background.buttonsound();
             if (p1.dir!=3) p1.dir=0;
         }
 		if (Keyboard::isKeyPressed(Keyboard::A))
         {
-            background.buttonsound();
+            if (p2.statusarah != 2 && p2.statusarah != 3)background.buttonsound();
             if (p2.dir!=2) p2.dir=1;
         }
 	    if (Keyboard::isKeyPressed(Keyboard::D))
         {
-            background.buttonsound();
+            if (p2.statusarah != 3 && p2.statusarah !=2)background.buttonsound();
             if (p2.dir!=1)  p2.dir=2;
         }
 	    if (Keyboard::isKeyPressed(Keyboard::W))
         {
-            background.buttonsound();
+            if (p2.statusarah != 1 && p2.statusarah != 4)background.buttonsound();
             if (p2.dir!=0) p2.dir=3;
         }
 		if (Keyboard::isKeyPressed(Keyboard::S))
         {
-            background.buttonsound();
+            if (p2.statusarah != 4 && p2.statusarah != 1)background.buttonsound();
             if (p2.dir!=3) p2.dir=0;
         }
         if (Keyboard::isKeyPressed(Keyboard::Q))

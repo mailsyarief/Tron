@@ -1,7 +1,9 @@
 #include "Menu.h"
 
+
 Menu::Menu(float width, float height)
 {
+
 
 	if (!font.loadFromFile("comicsans.ttf"))
 	{
@@ -15,14 +17,14 @@ Menu::Menu(float width, float height)
     }
 
     imageSprite.setTexture(texture);
-
+    //std::stringstream joinan;
 	text.setFont(font);
 	text.setColor(sf::Color::Cyan);
 	text.setString(" ");
     text1.setFont(font);
     text1.setCharacterSize(15);
 	text1.setColor(sf::Color::White);
-	text1.setString("\n\nFinal Project PBO - Dosen : Abdul Munif");
+	text1.setString("\n\nFinal Project PBO - Dosen : Abdul Munif ");
 	text1.setPosition(420,650);
 
 	menu[0].setFont(font);

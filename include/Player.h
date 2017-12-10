@@ -14,6 +14,7 @@ class Player
         sf::Color color;
         const int W=1080;
         const int H=720;
+        int statusarah;
 
     protected:
 
