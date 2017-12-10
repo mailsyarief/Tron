@@ -54,6 +54,7 @@
 		</Linker>
 		<Unit filename="include/About.h" />
 		<Unit filename="include/Background_Audio.h" />
+		<Unit filename="include/Control_Options.h" />
 		<Unit filename="include/MainMenu.h" />
 		<Unit filename="include/Menu.h" />
 		<Unit filename="include/Options.h" />
@@ -61,6 +62,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/About.cpp" />
 		<Unit filename="src/Background_Audio.cpp" />
+		<Unit filename="src/Control_Options.cpp" />
 		<Unit filename="src/MainMenu.cpp" />
 		<Unit filename="src/Menu.cpp" />
 		<Unit filename="src/Options.cpp" />

@@ -73,7 +73,7 @@ void a()
 	shader->setParameter("frag_LightAttenuation", 100);
 	RenderStates states;
 	states.shader = shader;
-
+    //game mulai
     while (window.isOpen())
     {
         Event e;
