@@ -277,7 +277,6 @@ void OptionsFunction()
 					switch (menu.GetPressedItem())
 					{
 					case 0:
-                        menu.disablemusic_notif();
 						break;
 					case 1:
 					    background.buttonsound();
@@ -295,7 +294,6 @@ void OptionsFunction()
 
 					break;
 				}
-
 				break;
 			case sf::Event::Closed:
 				window.close();

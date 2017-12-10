@@ -23,7 +23,8 @@ Background_Audio::disablemusic()
 
 Background_Audio::enablemusic()
 {
-    music.play();
+    if (!music.openFromFile("background.wav")) music.play();
+    if (music.openFromFile("background.wav")) music.stop();
 }
 
 Background_Audio::buttonsound()
