@@ -1,15 +1,15 @@
-#ifndef ABOUT_H
-#define ABOUT_H
+#ifndef CONTROL_OPTIONS_H
+#define CONTROL_OPTIONS_H
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#define MAX_NUMBER_OF_ITEMS 3
+#define MAX_NUMBER_OF_ITEMS 2
 
-class About
+class Control_Options
 {
     public:
-        About(float width, float height);
-        virtual ~About();
+        Control_Options(float width, float height);
+        virtual ~Control_Options();
         void draw(sf::RenderWindow &window);
         int GetPressedItem() { return selectedItemIndex; }
 
@@ -27,7 +27,6 @@ class About
         sf::String text_input;
         sf::Event event;
 
-
 };
 
-#endif // ABOUT_H
+#endif // CONTROL_OPTIONS_H

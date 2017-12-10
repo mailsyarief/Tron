@@ -1,15 +1,12 @@
-#ifndef ABOUT_H
-#define ABOUT_H
-#include <SFML/Graphics.hpp>
-#include <iostream>
+#ifndef PLAYERNAMEINPUT_H
+#define PLAYERNAMEINPUT_H
 
-#define MAX_NUMBER_OF_ITEMS 3
 
-class About
+class PlayerNameInput
 {
     public:
-        About(float width, float height);
-        virtual ~About();
+        PlayerNameInput(float width, float height);
+        virtual ~PlayerNameInput();
         void draw(sf::RenderWindow &window);
         int GetPressedItem() { return selectedItemIndex; }
 
@@ -26,8 +23,6 @@ class About
         std::string str_input;
         sf::String text_input;
         sf::Event event;
-
-
 };
 
-#endif // ABOUT_H
+#endif // PLAYERNAMEINPUT_H

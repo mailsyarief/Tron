@@ -1,6 +1,6 @@
-#include "About.h"
+#include "Control_Options.h"
 
-About::About(float width, float height)
+Control_Options::Control_Options(float width, float height)
 {
 
 	if (!font.loadFromFile("comicsans.ttf"))
@@ -19,27 +19,24 @@ About::About(float width, float height)
 
 
 	menu[0].setColor(sf::Color::White);
-	menu[0].setString("5116100151 Falah Razzaq");
+	menu[0].setString("Player 1\n    W=Maju\n    S=Mundur\n    A=Kiri\n    D=Kanan");
 	menu[0].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 1));
 
-	menu[1].setColor(sf::Color::White);
-	menu[1].setString("5116100164 Hilmi Raditya");
+	menu[1].setColor(sf::Color::Red);
+	menu[1].setString("Player 1\n    Up=Maju\n    Down=Mundur\n    Left=Kiri\n    Right=Kanan");
 	menu[1].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 2));
 
-	menu[2].setColor(sf::Color::White);
-	menu[2].setString("5116100168 Ismail Syarief");
-	menu[2].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 3));
 
 	selectedItemIndex = 0;
 }
 
 
-About::~About()
+Control_Options::~Control_Options()
 {
 
 }
 
-void About::draw(sf::RenderWindow &window)
+void Control_Options::draw(sf::RenderWindow &window)
 {
     window.draw(text);
     window.draw(text1);

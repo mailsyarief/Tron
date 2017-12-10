@@ -8,18 +8,18 @@ class MainMenu
 {
 
 public:
-	Menu(float width, float height);
-	~Menu();
+	MainMenu(float width, float height);
+	~MainMenu();
 
 	void draw(sf::RenderWindow &window);
-	void MoveUp();
-	void MoveDown();
-	int GetPressedItem() { return selectedItemIndex; }
+	void moveup();
+	void movedown();
+	int GetPressedItem() { return SelectedItemIndex; }
 
 private:
-	int selectedItemIndex;
+	int SelectedItemIndex;
 	sf::Font font;
-sf::Text menu[MAX_NUMBER_OF_ITEMS];
+    sf::Text menu[MAX_NUMBER_OF_ITEMS];
 
 };
 
