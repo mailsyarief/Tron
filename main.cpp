@@ -9,7 +9,6 @@
 #include "Menu.h"
 #include "Options.h"
 #include "Player.h"
-
 #include "Control_Options.h"
 #include "PlayerNameInput.h"
 
@@ -94,6 +93,7 @@ void a()
 
         if (Keyboard::isKeyPressed(Keyboard::Q))
         {
+            background.buttonsound();
             window.clear();
             window.close();
             MainMenu();
@@ -161,10 +161,12 @@ void MainMenu()
 				switch (event.key.code)
 				{
 				case sf::Keyboard::Up:
+				    background.buttonsound();
 					menu.MoveUp();
 					break;
 
 				case sf::Keyboard::Down:
+				    background.buttonsound();
 					menu.MoveDown();
 					break;
 
@@ -172,18 +174,21 @@ void MainMenu()
 					switch (menu.GetPressedItem())
 					{
 					case 0:
+					    background.buttonsound();
 						std::cout << "Play button has been pressed" << std::endl;
 						window.clear();
 						window.close();
 						a();
 						break;
 					case 1:
+					    background.buttonsound();
 						std::cout << "Options button has been pressed" << std::endl;
                         window.clear();
                         window.close();
 						OptionsFunction();
 						break;
 					case 2:
+					    background.buttonsound();
 						window.close();
 						break;
 					}
@@ -228,16 +233,19 @@ void OptionsFunction()
 				switch (event.key.code)
 				{
                 case sf::Keyboard::Q:
+                        background.buttonsound();
                         window.clear();
 						window.close();
 						MainMenu();
 						break;
 
 				case sf::Keyboard::Up:
+				    background.buttonsound();
 					menu.MoveUp();
 					break;
 
 				case sf::Keyboard::Down:
+				    background.buttonsound();
 					menu.MoveDown();
 					break;
 
@@ -249,12 +257,14 @@ void OptionsFunction()
                         menu.disablemusic_notif();
 						break;
 					case 1:
+					    background.buttonsound();
 						std::cout << "About button has been pressed" << std::endl;
                         window.clear();
 						window.close();
 						AboutFunction();
 						break;
 					case 2:
+					    background.buttonsound();
                         window.clear();
                         window.close();
 						ControlFunction();
@@ -302,11 +312,13 @@ void AboutFunction()
 				switch (event.key.code)
 				{
 				case sf::Keyboard::Q:
+				    background.buttonsound();
                     std::cout<< "Back to Main Menu"<< std::endl;
 				case sf::Keyboard::Return:
 					switch (menu.GetPressedItem())
 					{
 					case 0:
+					    background.buttonsound();
 						std::cout << "Play button has been pressed" << std::endl;
 						window.clear();
 						window.close();
@@ -350,6 +362,7 @@ void ControlFunction()
 				switch (event.key.code)
 				{
 				case sf::Keyboard::Q:
+				    background.buttonsound();
                     std::cout<< "Back to Main Menu"<< std::endl;
 				case sf::Keyboard::Return:
 					switch (menu123.GetPressedItem())

@@ -12,6 +12,7 @@ class Background_Audio
         int enablemusic();
         int enablebackgroundmusic();
         int disablemusic();
+        int buttonsound();
 
     protected:
 

@@ -14,7 +14,7 @@
 	"About.h"
 	"Player.h"
 
-1512883606 source:f:\github\tron\main.cpp
+1512886348 source:f:\github\tron\main.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<time.h>
@@ -531,10 +531,10 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1512882953 source:f:\github\tron\src\background_audio.cpp
+1512886305 source:f:\github\tron\src\background_audio.cpp
 	"Background_Audio.h"
 
-1512882953 f:\github\tron\include\background_audio.h
+1512886305 f:\github\tron\include\background_audio.h
 	<SFML/Audio.hpp>
 
 1512882953 source:f:\github\tron\src\options.cpp
@@ -589,16 +589,17 @@
 1512285598 source:f:\repofp\tron_legancy\tron\tron\src\player.cpp
 	"Player.h"
 
-1512882953 f:\github\tron\include\player.h
+1512886112 f:\github\tron\include\player.h
 	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
 
-1512882953 source:f:\github\tron\src\player.cpp
+1512886112 source:f:\github\tron\src\player.cpp
 	"Player.h"
 
-1512883606 source:f:\github\tron\src\control_options.cpp
+1512884062 source:f:\github\tron\src\control_options.cpp
 	"Control_Options.h"
 
-1512883606 f:\github\tron\include\control_options.h
+1512884107 f:\github\tron\include\control_options.h
 	<SFML/Graphics.hpp>
 	<iostream>
 

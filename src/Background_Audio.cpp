@@ -26,3 +26,8 @@ Background_Audio::enablemusic()
     music.play();
 }
 
+Background_Audio::buttonsound()
+{
+    if (!music.openFromFile("Pop-sound-effect.wav")) return -1;
+    music.play();
+}
