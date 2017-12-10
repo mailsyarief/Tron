@@ -2,6 +2,7 @@
 #include <SFML/Audio.hpp>
 #include <time.h>
 #include <iostream>
+#include <cstring>
 
 #include "About.h"
 #include "Background_Audio.h"
@@ -17,7 +18,7 @@ using namespace sf;
 Background_Audio background;
 const int W=1080;
 const int H=720;
-int speed = 1;
+float speed;
 bool field[W][H]={0};
 
 void a();
@@ -28,6 +29,8 @@ void ControlFunction();
 
 void a()
 {
+    speed = 0.5;
+    memset(field,0,sizeof(field));
     srand(time(0));
 
     RenderWindow window(VideoMode(W, H), "The Tron!");
@@ -49,14 +52,18 @@ void a()
 
 	sf::Font font;
     if (!font.loadFromFile("comicsans.ttf")) printf("Loading font failed\n");
-    Text text("YOU WIN!",font,35);
-	text.setPosition(W/2-80,20);
+    Text text("YOU WIN!",font,50);
+	text.setPosition(W/2-90,H/2-40);
 
     Text text2("Tekan Q untuk keluar, Tekan R untuk restart game",font,20);
     text2.setPosition(W-550,H-60);
 
     Text text3("Player 1 Color : White | Player 2 Color : Red",font,18);
     text3.setPosition(W-500,H-30);
+
+    Text text4("B = Game speed - 1 | N = Game Speed + 1",font,18);
+    text4.setPosition(W-1000,H-30);
+
 
 	bool Game=1;
 
@@ -129,6 +136,16 @@ void a()
             window.close();
             a();
         }
+        if(Keyboard::isKeyPressed(Keyboard::B))
+        {
+            if(speed>0.1)
+                speed-=0.1;
+        }
+        if(Keyboard::isKeyPressed(Keyboard::N))
+        {
+            if(speed<3)
+                speed+=0.1;
+        }
 
 		if (!Game)
         {
@@ -142,8 +159,8 @@ void a()
 		for(int i=0;i<speed;i++)
 		{
 			p1.tick(); p2.tick();
-			if (field[p1.x][p1.y]==1) {Game=0; text.setColor(p2.color); text2.setColor(p2.color);}
-			if (field[p2.x][p2.y]==1) {Game=0; text.setColor(p1.color); text2.setColor(p1.color);}
+			if (field[p1.x][p1.y]==1) {Game=0; text.setColor(p2.color); text2.setColor(sf::Color::White);}
+			if (field[p2.x][p2.y]==1) {Game=0; text.setColor(p1.color); text2.setColor(sf::Color::White);}
 			field[p1.x][p1.y]=1;
 			field[p2.x][p2.y]=1;
 
@@ -160,6 +177,7 @@ void a()
 		window.clear();
 		window.draw(sprite);
 		window.draw(text3);
+		window.draw(text4);
  		window.display();
 	}
 
