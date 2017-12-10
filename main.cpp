@@ -2,20 +2,21 @@
 #include <SFML/Audio.hpp>
 #include <time.h>
 #include <iostream>
-
+#include <memory>
+#include <cstring>
 #include "Menu.h"
 #include "Background_Audio.h"
 #include "Options.h"
 #include "About.h"
 #include "Player.h"
 
-
 using namespace sf;
 
 Background_Audio background;
-const int W=600;
-const int H=500;
-int speed = 1;
+const int W=1080;
+const int H=720;
+float speed;
+int scoreA, scoreB;
 bool field[W][H]={0};
 
 void a();
@@ -23,16 +24,17 @@ void MainMenu();
 void OptionsFunction();
 void AboutFunction();
 
-
 void a()
 {
+    speed = 0.5;
+    memset(field,0,sizeof(field));
     srand(time(0));
 
     RenderWindow window(VideoMode(W, H), "The Tron!");
     window.setFramerateLimit(60);
 
 	sf::Texture texture;
-	texture.loadFromFile("background.jpg");
+	texture.loadFromFile("background-1.jpg");
 	sf::Sprite sBackground(texture);
 
     Player p1(Color::Yellow), p2(Color::Cyan);
@@ -50,18 +52,22 @@ void a()
     {
         // error...
     }
-    Text text("YOU WIN!",font,35);
+    Text text("BLUE WIN!",font,35);
 	text.setPosition(W/2-80,20);
 
-    Text text2("press Q = quit, press R = restart",font,35);
-    text2.setPosition(W/2-H/2,H/2+140);
+    Text text2("Q = quit  |   R = Restart",font,35);
+    text2.setPosition(W/2-110,H/2+140);
+
+    Text text3("Space = Game Speed++  |   B = Game Speed--",font,35);
+    text3.setPosition(W-500,H-30);
+
 
 	bool Game=1;
 
 	Shader* shader = new Shader;
 	shader->loadFromFile("shader.frag",Shader::Fragment);
 	shader->setParameter("frag_ScreenResolution", Vector2f(W,H));
-	shader->setParameter("frag_LightAttenuation", 100);
+	shader->setParameter("frag_LightAttenuation", 100.0);
 	RenderStates states;
 	states.shader = shader;
 
@@ -81,6 +87,22 @@ void a()
             if (!music.openFromFile("effect.wav")) // error
             music.play();
         }
+
+        if (Keyboard::isKeyPressed(Keyboard::Q))
+        {
+            window.clear();
+            window.close();
+            MainMenu();
+
+        }
+
+        if (Keyboard::isKeyPressed(Keyboard::R))
+        {
+            window.clear();
+            window.close();
+            a();
+        }
+
 	    if (Keyboard::isKeyPressed(Keyboard::Right)) if (p1.dir!=1)  p1.dir=2;
 	    if (Keyboard::isKeyPressed(Keyboard::Up)) if (p1.dir!=0) p1.dir=3;
 		if (Keyboard::isKeyPressed(Keyboard::Down)) if (p1.dir!=3) p1.dir=0;
@@ -90,52 +112,57 @@ void a()
 	    if (Keyboard::isKeyPressed(Keyboard::W)) if (p2.dir!=0) p2.dir=3;
 		if (Keyboard::isKeyPressed(Keyboard::S)) if (p2.dir!=3) p2.dir=0;
 
-        if (Keyboard::isKeyPressed(Keyboard::Q))
-        {
-            window.clear();
-            window.close();
-            MainMenu();
-        }
-        if (Keyboard::isKeyPressed(Keyboard::R))
-        {
-            window.clear();
-            window.close();
-            a();
-        }
+		if (Keyboard::isKeyPressed(Keyboard::Space)) if(speed<=3) speed+=0.1;
+		if (Keyboard::isKeyPressed(Keyboard::B)) if(speed>0.1) speed-=0.1;
 
-		if (!Game)
+        if (!Game)
         {
             window.draw(text);
             window.draw(text2);
             window.display();
             continue;
+
         }
 
 		for(int i=0;i<speed;i++)
 		{
-			p1.tick(); p2.tick();
-			if (field[p1.x][p1.y]==1) {Game=0; text.setColor(p2.color); text2.setColor(p2.color);}
-			if (field[p2.x][p2.y]==1) {Game=0; text.setColor(p1.color); text2.setColor(p1.color);}
+
+			p1.tick();
+			p2.tick();
+
+			if (field[p1.x][p1.y]==1)
+                {Game=0; text.setColor(p2.color); text2.setColor(p2.color);
+                    printf("p1 == %d %d\n",field[p1.x][p2.y]);
+                    scoreA++;
+                }
+			if (field[p2.x][p2.y]==1)
+                {Game=0; text.setColor(p1.color); text2.setColor(p1.color);
+                    printf("p2 == %d %d\n",field[p2.x][p2.y]);
+                    scoreB++;
+                }
 			field[p1.x][p1.y]=1;
 			field[p2.x][p2.y]=1;
 
             t.display();
-
+            //SHADER UNTUK PLAYER//
 			shader->setParameter("frag_LightOrigin", Vector2f(p1.x,p1.y));
 			shader->setParameter("frag_LightColor",p1.getColor());
 			t.draw(sprite, states);
 			shader->setParameter("frag_LightOrigin", Vector2f(p2.x,p2.y));
 			shader->setParameter("frag_LightColor",p2.getColor());
 			t.draw(sprite, states);
+
+
 		}
 
-
-
-
 	   ////// draw  ///////
+
+
 		window.clear();
+        window.draw(text3);
 		window.draw(sprite);
  		window.display();
+
 	}
 
 }

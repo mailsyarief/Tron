@@ -1,5 +1,6 @@
 #include "Player.h"
-
+#include <memory>
+#include <stdio.h>
 Player::~Player()
 {
     //dtor
@@ -29,3 +30,4 @@ sf::Vector3f Player::getColor()
 {
     return sf::Vector3f(color.r,color.g,color.b);
 }
+

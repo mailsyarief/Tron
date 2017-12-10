@@ -3,11 +3,13 @@
 	<SFML/Graphics.hpp>
 	<time.h>
 
-1512294903 source:f:\repofp\tron_legancy\tron\tron\main.cpp
+1512895692 source:f:\repofp\tron_legancy\tron\tron\main.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<time.h>
 	<iostream>
+	<memory>
+	<cstring>
 	"Menu.h"
 	"Background_Audio.h"
 	"Options.h"
@@ -579,9 +581,11 @@
 1512243631 source:f:\repofp\tron_legancy\tron\tron\src\options.cpp
 	"Options.h"
 
-1512262670 f:\repofp\tron_legancy\tron\tron\include\player.h
+1512826395 f:\repofp\tron_legancy\tron\tron\include\player.h
 	<SFML/Graphics.hpp>
 
-1512285598 source:f:\repofp\tron_legancy\tron\tron\src\player.cpp
+1512821454 source:f:\repofp\tron_legancy\tron\tron\src\player.cpp
 	"Player.h"
+	<memory>
+	<stdio.h>
 
