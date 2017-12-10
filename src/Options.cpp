@@ -18,7 +18,7 @@ Options::Options(float width, float height)
     text1.setString("\n\nTekan Q untuk kembali ke main menu");
 
 
-	menu[0].setColor(sf::Color::Red);
+	menu[0].setColor(sf::Color::Cyan);
 	menu[0].setString("Background Music : On");
 	menu[0].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 1));
 
@@ -57,7 +57,7 @@ void Options::MoveUp()
 	{
 		menu[selectedItemIndex].setColor(sf::Color::White);
 		selectedItemIndex--;
-		menu[selectedItemIndex].setColor(sf::Color::Red);
+		menu[selectedItemIndex].setColor(sf::Color::Cyan);
 	}
 }
 
@@ -67,7 +67,7 @@ void Options::MoveDown()
 	{
 		menu[selectedItemIndex].setColor(sf::Color::White);
 		selectedItemIndex++;
-		menu[selectedItemIndex].setColor(sf::Color::Red);
+		menu[selectedItemIndex].setColor(sf::Color::Cyan);
 	}
 }
 

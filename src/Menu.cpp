@@ -9,7 +9,7 @@ Menu::Menu(float width, float height)
 	}
 
 
-    if(!texture.loadFromFile("background.jpg"))
+    if(!texture.loadFromFile("title.jpg"))
     {
         //handle error
     }
@@ -17,15 +17,15 @@ Menu::Menu(float width, float height)
     imageSprite.setTexture(texture);
 
 	text.setFont(font);
-	text.setColor(sf::Color::Red);
-	text.setString("T R O N  G A M E !!!");
+	text.setColor(sf::Color::Cyan);
+	text.setString(" ");
     text1.setFont(font);
     text1.setCharacterSize(15);
 	text1.setColor(sf::Color::White);
 	text1.setString("\n\nFinal Project PBO - Dosen : Abdul Munif");
 
 	menu[0].setFont(font);
-	menu[0].setColor(sf::Color::Red);
+	menu[0].setColor(sf::Color::Cyan);
 	menu[0].setString("Play");
 	menu[0].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 2));
 
@@ -66,7 +66,7 @@ void Menu::MoveUp()
 	{
 		menu[selectedItemIndex].setColor(sf::Color::White);
 		selectedItemIndex--;
-		menu[selectedItemIndex].setColor(sf::Color::Red);
+		menu[selectedItemIndex].setColor(sf::Color::Cyan);
 	}
 }
 
@@ -76,6 +76,6 @@ void Menu::MoveDown()
 	{
 		menu[selectedItemIndex].setColor(sf::Color::White);
 		selectedItemIndex++;
-		menu[selectedItemIndex].setColor(sf::Color::Red);
+		menu[selectedItemIndex].setColor(sf::Color::Cyan);
 	}
 }

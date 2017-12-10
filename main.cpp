@@ -37,7 +37,7 @@ void a()
     window.setFramerateLimit(60);
 
 	sf::Texture texture;
-	texture.loadFromFile("background.jpg");
+	texture.loadFromFile("background_ingame.jpg");
 	sf::Sprite sBackground(texture);
 
     Player p1(Color::Red), p2(Color::White);
@@ -190,7 +190,7 @@ void MainMenu()
 	Menu menu(window.getSize().x, window.getSize().y);
 
     sf::Texture imageSource;
-    if(!imageSource.loadFromFile("background.jpg")) printf("Load Background  Failed\n");
+    if(!imageSource.loadFromFile("title.jpg")) printf("Load Background  Failed\n");
     sf::Sprite imageSprite;
     imageSprite.setTexture(imageSource);
 
@@ -257,7 +257,7 @@ void OptionsFunction()
 	Options menu(window.getSize().x, window.getSize().y);
 
     sf::Texture imageSource;
-    if(!imageSource.loadFromFile("background.jpg")) printf("Load Background  Success");
+    if(!imageSource.loadFromFile("title.jpg")) printf("Load Background  Success");
     sf::Sprite imageSprite;
     imageSprite.setTexture(imageSource);
 
@@ -334,7 +334,7 @@ void AboutFunction()
 	About menu(window.getSize().x, window.getSize().y);
 
     sf::Texture imageSource;
-    if(!imageSource.loadFromFile("background.jpg")) printf("Load Background  Success");
+    if(!imageSource.loadFromFile("title.jpg")) printf("Load Background  Success");
     sf::Sprite imageSprite;
     imageSprite.setTexture(imageSource);
 
@@ -382,7 +382,7 @@ void ControlFunction()
 	Control_Options menu123(window.getSize().x, window.getSize().y);
 
     sf::Texture imageSource;
-    if(!imageSource.loadFromFile("background.jpg")) printf("Load Background  Success");
+    if(!imageSource.loadFromFile("title.jpg")) printf("Load Background  Success");
     sf::Sprite imageSprite;
     imageSprite.setTexture(imageSource);
 

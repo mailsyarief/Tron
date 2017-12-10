@@ -22,7 +22,7 @@ Control_Options::Control_Options(float width, float height)
 	menu[0].setString("Player Putih\n    W=Maju\n    S=Mundur\n    A=Kiri\n    D=Kanan");
 	menu[0].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 1));
 
-	menu[1].setColor(sf::Color::Red);
+	menu[1].setColor(sf::Color::Cyan);
 	menu[1].setString("Player Merah\n    Up=Maju\n    Down=Mundur\n    Left=Kiri\n    Right=Kanan");
 	menu[1].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 2));
 
