@@ -10,7 +10,7 @@ Control_Options::Control_Options(float width, float height)
 
 	text.setFont(font);
 	text.setColor(sf::Color::Red);
-	text.setString("T R O N  G A M E !!!");
+	text.setString("");
     text1.setFont(font);
     text1.setCharacterSize(15);
 	text1.setColor(sf::Color::White);
@@ -19,11 +19,11 @@ Control_Options::Control_Options(float width, float height)
 
 
 	menu[0].setColor(sf::Color::White);
-	menu[0].setString("Player Putih\n    W=Maju\n    S=Mundur\n    A=Kiri\n    D=Kanan");
+	menu[0].setString("Player Putih\n    W = Atas\n    S = Bawah\n    A=Kiri\n    D=Kanan\n *Hold untuk rem");
 	menu[0].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 1));
 
-	menu[1].setColor(sf::Color::Cyan);
-	menu[1].setString("Player Merah\n    Up=Maju\n    Down=Mundur\n    Left=Kiri\n    Right=Kanan");
+	menu[1].setColor(sf::Color::Red);
+	menu[1].setString("Player Merah\n    Up = Atas\n    Down = Bawah\n    Left = Kiri\n    Right = Kanan\n *Hold untuk rem");
 	menu[1].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 2));
 
 

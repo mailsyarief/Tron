@@ -33,7 +33,7 @@ void a()
     memset(field,0,sizeof(field));
     srand(time(0));
 
-    RenderWindow window(VideoMode(W, H), "The Tron!");
+    RenderWindow window(VideoMode(W, H), "Alhamdullilah kelar");
     window.setFramerateLimit(60);
 
 	sf::Texture texture;

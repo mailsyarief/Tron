@@ -23,6 +23,7 @@ Menu::Menu(float width, float height)
     text1.setCharacterSize(15);
 	text1.setColor(sf::Color::White);
 	text1.setString("\n\nFinal Project PBO - Dosen : Abdul Munif");
+	text1.setPosition(420,650);
 
 	menu[0].setFont(font);
 	menu[0].setColor(sf::Color::Cyan);

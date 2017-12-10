@@ -10,7 +10,7 @@ Options::Options(float width, float height)
 
 	text.setFont(font);
 	text.setColor(sf::Color::Red);
-	text.setString("T R O N  G A M E !!!");
+	text.setString("");
     text1.setFont(font);
     text1.setCharacterSize(15);
 	text1.setColor(sf::Color::White);
