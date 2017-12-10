@@ -14,12 +14,21 @@ Background_Audio::enablebackgroundmusic()
 {
     if (!music.openFromFile("background.wav")) return -1;
     music.play();
+    play = 1;
 }
 
 Background_Audio::enablemusic()
 {
-    if (!music.openFromFile("background.wav")) music.play();
-    if (music.openFromFile("background.wav")) music.stop();
+    if (play == 1)
+    {
+        music.stop();
+        play = 0;
+    }
+    else if (play == 0)
+    {
+        music.play();
+        play = 1;
+    }
 }
 
 Background_Audio::buttonsound()

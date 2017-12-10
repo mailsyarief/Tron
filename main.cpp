@@ -12,12 +12,11 @@
 #include "Control_Options.h"
 #include "PlayerNameInput.h"
 
-
 using namespace sf;
 
 Background_Audio background;
-const int W=600;
-const int H=600;
+const int W=1080;
+const int H=720;
 int speed = 1;
 bool field[W][H]={0};
 
@@ -26,7 +25,6 @@ void MainMenu();
 void OptionsFunction();
 void AboutFunction();
 void ControlFunction();
-
 
 void a()
 {
@@ -134,6 +132,7 @@ void a()
 
 		if (!Game)
         {
+            background.buttonsound();
             window.draw(text);
             window.draw(text2);
             window.display();
@@ -169,7 +168,7 @@ void a()
 void MainMenu()
 {
     srand(time(0));
-    sf::RenderWindow window(sf::VideoMode(600, 600), "TRON");
+    sf::RenderWindow window(sf::VideoMode(W, H), "TRON");
 	Menu menu(window.getSize().x, window.getSize().y);
 
     sf::Texture imageSource;
@@ -220,7 +219,6 @@ void MainMenu()
 
 					break;
 				}
-
 				break;
 			case sf::Event::Closed:
 				window.close();
@@ -237,7 +235,7 @@ void MainMenu()
 void OptionsFunction()
 {
     srand(time(0));
-    sf::RenderWindow window(sf::VideoMode(600, 600), "TRON");
+    sf::RenderWindow window(sf::VideoMode(W, H), "TRON");
 	Options menu(window.getSize().x, window.getSize().y);
 
     sf::Texture imageSource;
@@ -272,11 +270,13 @@ void OptionsFunction()
 					menu.MoveDown();
 					break;
 
-
 				case sf::Keyboard::Return:
 					switch (menu.GetPressedItem())
 					{
 					case 0:
+						background.enablemusic();
+                        menu.MusicOffOn(window);
+                        window.display();
 						break;
 					case 1:
 					    background.buttonsound();
@@ -312,7 +312,7 @@ void OptionsFunction()
 void AboutFunction()
 {
     srand(time(0));
-    sf::RenderWindow window(sf::VideoMode(600, 600), "TRON");
+    sf::RenderWindow window(sf::VideoMode(W, H), "TRON");
 	About menu(window.getSize().x, window.getSize().y);
 
     sf::Texture imageSource;
@@ -332,13 +332,11 @@ void AboutFunction()
 				{
 				case sf::Keyboard::Q:
 				    background.buttonsound();
-                    std::cout<< "Back to Main Menu"<< std::endl;
 				case sf::Keyboard::Return:
 					switch (menu.GetPressedItem())
 					{
 					case 0:
 					    background.buttonsound();
-						std::cout << "Play button has been pressed" << std::endl;
 						window.clear();
 						window.close();
 						MainMenu();
@@ -362,7 +360,7 @@ void AboutFunction()
 void ControlFunction()
 {
     srand(time(0));
-    sf::RenderWindow window(sf::VideoMode(600, 600), "TRON");
+    sf::RenderWindow window(sf::VideoMode(W, H), "TRON");
 	Control_Options menu123(window.getSize().x, window.getSize().y);
 
     sf::Texture imageSource;
@@ -382,6 +380,7 @@ void ControlFunction()
 				{
 				case sf::Keyboard::Q:
 				    background.buttonsound();
+
 				case sf::Keyboard::Return:
 					switch (menu123.GetPressedItem())
 					{
@@ -406,9 +405,9 @@ void ControlFunction()
 	}
 }
 
-
 int main()
 {
     background.enablebackgroundmusic();
     MainMenu();
+    return 0;
 }

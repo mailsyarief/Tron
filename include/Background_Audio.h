@@ -12,12 +12,14 @@ class Background_Audio
         int enablemusic();
         int enablebackgroundmusic();
         int buttonsound();
+        bool play;
 
     protected:
 
     private:
         sf::Music music;
         sf::SoundBuffer buffer;
+        sf::SoundBuffer buffer2;
         sf::Sound soundbutton;
 };
 

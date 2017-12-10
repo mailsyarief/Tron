@@ -71,15 +71,16 @@ void Options::MoveDown()
 	}
 }
 
-void Options::disablemusic_notif()
+void Options::MusicOffOn(sf::RenderWindow &window)
 {
-    Background_Audio background;
-    if (background.enablemusic() || background.enablebackgroundmusic())
-    {
+	if(menu[0].getString() == "Background Music : On")
+	{
         menu[0].setString("Background Music : Off");
-    }
-    else
-    {
+		window.draw(menu[0]);
+	}
+	else if (menu[0].getString() == "Background Music : Off")
+	{
         menu[0].setString("Background Music : On");
-    }
+		window.draw(menu[0]);
+	}
 }
