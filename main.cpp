@@ -50,10 +50,7 @@ void a()
     t.draw(sBackground);
 
 	sf::Font font;
-    if (!font.loadFromFile("comicsans.ttf"))
-    {
-        // error...
-    }
+    if (!font.loadFromFile("comicsans.ttf")) printf("Loading font failed\n");
     Text text("YOU WIN!",font,35);
 	text.setPosition(W/2-80,20);
 
@@ -81,16 +78,46 @@ void a()
                 window.close();
 		}
 
-		if (Keyboard::isKeyPressed(Keyboard::Left)) if (p1.dir!=2) p1.dir=1;
-	    if (Keyboard::isKeyPressed(Keyboard::Right)) if (p1.dir!=1)  p1.dir=2;
-	    if (Keyboard::isKeyPressed(Keyboard::Up)) if (p1.dir!=0) p1.dir=3;
-		if (Keyboard::isKeyPressed(Keyboard::Down)) if (p1.dir!=3) p1.dir=0;
-
-		if (Keyboard::isKeyPressed(Keyboard::A)) if (p2.dir!=2) p2.dir=1;
-	    if (Keyboard::isKeyPressed(Keyboard::D)) if (p2.dir!=1)  p2.dir=2;
-	    if (Keyboard::isKeyPressed(Keyboard::W)) if (p2.dir!=0) p2.dir=3;
-		if (Keyboard::isKeyPressed(Keyboard::S)) if (p2.dir!=3) p2.dir=0;
-
+		if (Keyboard::isKeyPressed(Keyboard::Left))
+        {
+            background.buttonsound();
+            if (p1.dir!=2) p1.dir=1;
+        }
+	    if (Keyboard::isKeyPressed(Keyboard::Right))
+        {
+            background.buttonsound();
+            if (p1.dir!=1)  p1.dir=2;
+        }
+	    if (Keyboard::isKeyPressed(Keyboard::Up))
+        {
+            background.buttonsound();
+            if (p1.dir!=0) p1.dir=3;
+        }
+		if (Keyboard::isKeyPressed(Keyboard::Down))
+        {
+            background.buttonsound();
+            if (p1.dir!=3) p1.dir=0;
+        }
+		if (Keyboard::isKeyPressed(Keyboard::A))
+        {
+            background.buttonsound();
+            if (p2.dir!=2) p2.dir=1;
+        }
+	    if (Keyboard::isKeyPressed(Keyboard::D))
+        {
+            background.buttonsound();
+            if (p2.dir!=1)  p2.dir=2;
+        }
+	    if (Keyboard::isKeyPressed(Keyboard::W))
+        {
+            background.buttonsound();
+            if (p2.dir!=0) p2.dir=3;
+        }
+		if (Keyboard::isKeyPressed(Keyboard::S))
+        {
+            background.buttonsound();
+            if (p2.dir!=3) p2.dir=0;
+        }
         if (Keyboard::isKeyPressed(Keyboard::Q))
         {
             background.buttonsound();
@@ -146,7 +173,7 @@ void MainMenu()
 	Menu menu(window.getSize().x, window.getSize().y);
 
     sf::Texture imageSource;
-    if(!imageSource.loadFromFile("background.jpg")) printf("Load Background  Success");
+    if(!imageSource.loadFromFile("background.jpg")) printf("Load Background  Failed\n");
     sf::Sprite imageSprite;
     imageSprite.setTexture(imageSource);
 
@@ -175,14 +202,12 @@ void MainMenu()
 					{
 					case 0:
 					    background.buttonsound();
-						std::cout << "Play button has been pressed" << std::endl;
 						window.clear();
 						window.close();
 						a();
 						break;
 					case 1:
 					    background.buttonsound();
-						std::cout << "Options button has been pressed" << std::endl;
                         window.clear();
                         window.close();
 						OptionsFunction();
@@ -211,7 +236,6 @@ void MainMenu()
 
 void OptionsFunction()
 {
-
     srand(time(0));
     sf::RenderWindow window(sf::VideoMode(600, 600), "TRON");
 	Options menu(window.getSize().x, window.getSize().y);
@@ -224,7 +248,6 @@ void OptionsFunction()
 	while (window.isOpen())
 	{
 		sf::Event event;
-
 		while (window.pollEvent(event))
 		{
 			switch (event.type)
@@ -258,7 +281,6 @@ void OptionsFunction()
 						break;
 					case 1:
 					    background.buttonsound();
-						std::cout << "About button has been pressed" << std::endl;
                         window.clear();
 						window.close();
 						AboutFunction();
@@ -282,7 +304,6 @@ void OptionsFunction()
 
 			}
 		}
-
 		window.clear();
 		window.draw(imageSprite);
 		menu.draw(window);
@@ -363,7 +384,6 @@ void ControlFunction()
 				{
 				case sf::Keyboard::Q:
 				    background.buttonsound();
-                    std::cout<< "Back to Main Menu"<< std::endl;
 				case sf::Keyboard::Return:
 					switch (menu123.GetPressedItem())
 					{
@@ -379,7 +399,6 @@ void ControlFunction()
 			case sf::Event::Closed:
 				window.close();
 				break;
-
 			}
 		}
 		window.clear();
