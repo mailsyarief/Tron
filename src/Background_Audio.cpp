@@ -16,11 +16,6 @@ Background_Audio::enablebackgroundmusic()
     music.play();
 }
 
-Background_Audio::disablemusic()
-{
-    music.stop();
-}
-
 Background_Audio::enablemusic()
 {
     if (!music.openFromFile("background.wav")) music.play();
@@ -29,6 +24,7 @@ Background_Audio::enablemusic()
 
 Background_Audio::buttonsound()
 {
-    if (!music.openFromFile("Pop-sound-effect.wav")) return -1;
-    music.play();
+    if (!buffer.loadFromFile("Pop-sound-effect.wav")) return -1;
+    soundbutton.setBuffer(buffer);
+    soundbutton.play();
 }

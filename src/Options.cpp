@@ -77,11 +77,9 @@ void Options::disablemusic_notif()
     if (background.enablemusic() || background.enablebackgroundmusic())
     {
         menu[0].setString("Background Music : Off");
-        background.disablemusic();
     }
-    else if (background.disablemusic())
+    else
     {
         menu[0].setString("Background Music : On");
-        background.enablemusic();
     }
 }

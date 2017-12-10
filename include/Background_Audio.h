@@ -11,13 +11,14 @@ class Background_Audio
         virtual ~Background_Audio();
         int enablemusic();
         int enablebackgroundmusic();
-        int disablemusic();
         int buttonsound();
 
     protected:
 
     private:
         sf::Music music;
+        sf::SoundBuffer buffer;
+        sf::Sound soundbutton;
 };
 
 #endif // BACKGROUND_AUDIO_H
