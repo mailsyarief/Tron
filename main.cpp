@@ -3,11 +3,13 @@
 #include <time.h>
 #include <iostream>
 
-#include "Menu.h"
-#include "Background_Audio.h"
-#include "Options.h"
 #include "About.h"
+#include "Background_Audio.h"
+#include "MainMenu.h"
+#include "Menu.h"
+#include "Options.h"
 #include "Player.h"
+
 #include "Control_Options.h"
 #include "PlayerNameInput.h"
 
