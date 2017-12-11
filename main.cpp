@@ -3,6 +3,7 @@
 #include <time.h>
 #include <iostream>
 #include <cstring>
+#include <sstream>
 
 #include "About.h"
 #include "Background_Audio.h"
@@ -19,6 +20,7 @@ Background_Audio background;
 const int W=1080;
 const int H=720;
 float speed;
+int scoreA,scoreB;
 bool field[W][H]={0};
 
 void a();
@@ -125,6 +127,10 @@ void a()
         }
         if (Keyboard::isKeyPressed(Keyboard::Q))
         {
+            system("CLS");
+            scoreA = 0;
+            scoreB = 0;
+
             background.buttonsound();
             window.clear();
             window.close();
@@ -159,8 +165,12 @@ void a()
 		for(int i=0;i<speed;i++)
 		{
 			p1.tick(); p2.tick();
-			if (field[p1.x][p1.y]==1) {Game=0; text.setColor(p2.color); text2.setColor(sf::Color::White);}
-			if (field[p2.x][p2.y]==1) {Game=0; text.setColor(p1.color); text2.setColor(sf::Color::White);}
+			if (field[p1.x][p1.y]==1) {Game=0; text.setColor(p2.color); text2.setColor(sf::Color::White);
+                printf("Red = %d | White = %d\n", scoreA, ++scoreB);
+			}
+			if (field[p2.x][p2.y]==1) {Game=0; text.setColor(p1.color); text2.setColor(sf::Color::White);
+                printf("Red = %d | White = %d\n", ++scoreA, scoreB);
+			}
 			field[p1.x][p1.y]=1;
 			field[p2.x][p2.y]=1;
 
