@@ -5,11 +5,10 @@
 #include <iostream>
 #include <string.h>
 #include <stdio.h>
-
-#define MAX_NUMBER_OF_ITEMS 4
+#include <MenuLayout.h>
 
 using namespace std;
-class Menu
+class Menu : public MenuLayout
 {
 public:
 	Menu(float width, float height);

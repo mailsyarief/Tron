@@ -1,11 +1,11 @@
 #ifndef ABOUT_H
 #define ABOUT_H
+
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <MenuLayout.h>
 
-#define MAX_NUMBER_OF_ITEMS 3
-
-class About
+class About : public MenuLayout
 {
     public:
         About(float width, float height);
@@ -21,7 +21,6 @@ class About
         sf::Texture texture;
         sf::Text menu[MAX_NUMBER_OF_ITEMS];
         sf::Text text;
-        sf::Text text1;
 
         std::string str_input;
         sf::String text_input;

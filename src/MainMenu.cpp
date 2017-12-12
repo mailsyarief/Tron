@@ -1,11 +1,10 @@
 #include "MainMenu.h"
 
-
  MainMenu::MainMenu(float w, float h)
 {
     if(!font.loadFromFile("montserrat.bold.ttf"))
     {
-
+        printf ("Font failed to load\n");
     }
 
     menu[0].setFont(font);
@@ -32,7 +31,7 @@ MainMenu::~MainMenu()
 
 void MainMenu::draw(sf::RenderWindow &window)
 {
-    for (int i=0;i<MAX_NUMBER_OF_ITEMS;i++)
+    for (int i=0;i<3;i++)
     {
         window.draw(menu[i]);
     }

@@ -57,16 +57,20 @@
 		<Unit filename="include/Control_Options.h" />
 		<Unit filename="include/MainMenu.h" />
 		<Unit filename="include/Menu.h" />
+		<Unit filename="include/MenuLayout.h" />
 		<Unit filename="include/Options.h" />
 		<Unit filename="include/Player.h" />
+		<Unit filename="include/default_1.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/About.cpp" />
 		<Unit filename="src/Background_Audio.cpp" />
 		<Unit filename="src/Control_Options.cpp" />
 		<Unit filename="src/MainMenu.cpp" />
 		<Unit filename="src/Menu.cpp" />
+		<Unit filename="src/MenuLayout.cpp" />
 		<Unit filename="src/Options.cpp" />
 		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/default_1.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

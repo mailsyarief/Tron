@@ -7,7 +7,6 @@
 
 #include "About.h"
 #include "Background_Audio.h"
-#include "MainMenu.h"
 #include "Menu.h"
 #include "Options.h"
 #include "Player.h"
@@ -17,25 +16,24 @@
 using namespace sf;
 
 Background_Audio background;
-const int W=1080;
-const int H=720;
 float speed;
 int scoreA,scoreB;
-bool field[W][H]={0};
+bool field[1080][720]={0};
+const int W = 1080, H=720;
 
-void a();
+void GameFunction();
 void MainMenu();
 void OptionsFunction();
 void AboutFunction();
 void ControlFunction();
 
-void a()
+void GameFunction()
 {
     speed = 1;
     memset(field,0,sizeof(field));
     srand(time(0));
 
-    RenderWindow window(VideoMode(W, H), "Alhamdullilah kelar");
+    RenderWindow window(VideoMode(1080, 720), "TRON");
     window.setFramerateLimit(60);
 
 	sf::Texture texture;
@@ -46,7 +44,7 @@ void a()
 
 	Sprite sprite;
 	RenderTexture t;
-	t.create(W, H);
+	t.create(1080, 720);
 	t.setSmooth(true);
 	sprite.setTexture(t.getTexture());
     t.clear();
@@ -92,8 +90,7 @@ void a()
         Event e;
         while (window.pollEvent(e))
         {
-            if (e.type == Event::Closed)
-                window.close();
+            if (e.type == Event::Closed) window.close();
 		}
 
 		if (Keyboard::isKeyPressed(Keyboard::Left))
@@ -151,17 +148,15 @@ void a()
         {
             window.clear();
             window.close();
-            a();
+            GameFunction();
         }
         if(Keyboard::isKeyPressed(Keyboard::B))
         {
-            if(speed>0.1)
-                speed-=0.1;
+            if(speed>0.1) speed-=0.1;
         }
         if(Keyboard::isKeyPressed(Keyboard::N))
         {
-            if(speed<3)
-                speed+=0.1;
+            if(speed<3) speed+=0.1;
         }
 
 		if (!Game)
@@ -208,14 +203,8 @@ void a()
 
 void MainMenu()
 {
-    srand(time(0));
     sf::RenderWindow window(sf::VideoMode(W, H), "TRON");
 	Menu menu(window.getSize().x, window.getSize().y);
-
-    sf::Texture imageSource;
-    if(!imageSource.loadFromFile("title.jpg")) printf("Load Background  Failed\n");
-    sf::Sprite imageSprite;
-    imageSprite.setTexture(imageSource);
 
 	while (window.isOpen())
 	{
@@ -244,7 +233,7 @@ void MainMenu()
 					    background.buttonsound();
 						window.clear();
 						window.close();
-						a();
+						GameFunction();
 						break;
 					case 1:
 					    background.buttonsound();
@@ -262,12 +251,13 @@ void MainMenu()
 				}
 				break;
 			case sf::Event::Closed:
+
 				window.close();
 				break;
 			}
 		}
 		window.clear();
-        window.draw(imageSprite);
+		window.draw(menu.default_background);
 		menu.draw(window);
 		window.display();
 	}
@@ -275,14 +265,8 @@ void MainMenu()
 
 void OptionsFunction()
 {
-    srand(time(0));
     sf::RenderWindow window(sf::VideoMode(W, H), "TRON");
 	Options menu(window.getSize().x, window.getSize().y);
-
-    sf::Texture imageSource;
-    if(!imageSource.loadFromFile("title.jpg")) printf("Load Background  Success");
-    sf::Sprite imageSprite;
-    imageSprite.setTexture(imageSource);
 
 	while (window.isOpen())
 	{
@@ -332,19 +316,16 @@ void OptionsFunction()
 						ControlFunction();
 						break;
 					}
-
 					break;
 				}
 				break;
 			case sf::Event::Closed:
 				window.close();
-
 				break;
-
 			}
 		}
 		window.clear();
-		window.draw(imageSprite);
+		window.draw(menu.default_background);
 		menu.draw(window);
 		window.display();
 	}
@@ -352,14 +333,8 @@ void OptionsFunction()
 
 void AboutFunction()
 {
-    srand(time(0));
     sf::RenderWindow window(sf::VideoMode(W, H), "TRON");
 	About menu(window.getSize().x, window.getSize().y);
-
-    sf::Texture imageSource;
-    if(!imageSource.loadFromFile("title.jpg")) printf("Load Background  Success");
-    sf::Sprite imageSprite;
-    imageSprite.setTexture(imageSource);
 
 	while (window.isOpen())
 	{
@@ -392,7 +367,7 @@ void AboutFunction()
 			}
 		}
 		window.clear();
-		window.draw(imageSprite);
+		window.draw(menu.default_background);
 		menu.draw(window);
 		window.display();
 	}
@@ -400,14 +375,8 @@ void AboutFunction()
 
 void ControlFunction()
 {
-    srand(time(0));
     sf::RenderWindow window(sf::VideoMode(W, H), "TRON");
 	Control_Options menu123(window.getSize().x, window.getSize().y);
-
-    sf::Texture imageSource;
-    if(!imageSource.loadFromFile("title.jpg")) printf("Load Background  Success");
-    sf::Sprite imageSprite;
-    imageSprite.setTexture(imageSource);
 
 	while (window.isOpen())
 	{
@@ -440,7 +409,7 @@ void ControlFunction()
 			}
 		}
 		window.clear();
-		window.draw(imageSprite);
+		window.draw(menu123.default_background);
 		menu123.draw(window);
 		window.display();
 	}

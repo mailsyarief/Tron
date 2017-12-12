@@ -40,7 +40,7 @@ void Control_Options::draw(sf::RenderWindow &window)
 {
     window.draw(text);
     window.draw(text1);
-	for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
+	for (int i = 0; i <2; i++)
 	{
         menu[i].setFont(font);
         menu[i].setCharacterSize(20);

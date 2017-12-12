@@ -18,25 +18,25 @@
 	"Control_Options.h"
 	"PlayerNameInput.h"
 
-1512915758 source:f:\github\tron\main.cpp
+1513105478 source:f:\github\tron\main.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<time.h>
 	<iostream>
 	<cstring>
+	<sstream>
 	"About.h"
 	"Background_Audio.h"
-	"MainMenu.h"
 	"Menu.h"
 	"Options.h"
 	"Player.h"
 	"Control_Options.h"
 	"PlayerNameInput.h"
 
-1512882953 source:f:\github\tron\src\mainmenu.cpp
+1513103268 source:f:\github\tron\src\mainmenu.cpp
 	"MainMenu.h"
 
-1512883675 f:\github\tron\include\mainmenu.h
+1513093421 f:\github\tron\include\mainmenu.h
 	<SFML/Graphics.hpp>
 
 1486736397 f:\programming library\sfml-2.4.2\include\sfml\graphics.hpp
@@ -427,14 +427,15 @@
 	<string>
 	<vector>
 
-1512918798 source:f:\github\tron\src\menu.cpp
+1513103639 source:f:\github\tron\src\menu.cpp
 	"Menu.h"
 
-1512918798 f:\github\tron\include\menu.h
+1513102607 f:\github\tron\include\menu.h
 	"SFML/Graphics.hpp"
 	<iostream>
 	<string.h>
 	<stdio.h>
+	<MenuLayout.h>
 
 1486736397 f:\programming library\sfml-2.4.2\include\sfml\audio.hpp
 	<SFML/System.hpp>
@@ -539,25 +540,27 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1512895788 source:f:\github\tron\src\background_audio.cpp
+1513093421 source:f:\github\tron\src\background_audio.cpp
 	"Background_Audio.h"
 
-1512895878 f:\github\tron\include\background_audio.h
+1513093421 f:\github\tron\include\background_audio.h
 	<SFML/Audio.hpp>
 
-1512914149 source:f:\github\tron\src\options.cpp
+1513102742 source:f:\github\tron\src\options.cpp
 	"Options.h"
 
-1512893574 f:\github\tron\include\options.h
+1513096452 f:\github\tron\include\options.h
 	"SFML/Graphics.hpp"
 	"Background_Audio.h"
+	"MenuLayout.h"
 
-1512914250 source:f:\github\tron\src\about.cpp
+1513103774 source:f:\github\tron\src\about.cpp
 	"About.h"
 
-1512882953 f:\github\tron\include\about.h
+1513103760 f:\github\tron\include\about.h
 	<SFML/Graphics.hpp>
 	<iostream>
+	<MenuLayout.h>
 
 1512988905 f:\repofp\tron_legancy\tron\tron\include\menu.h
 	"SFML/Graphics.hpp"
@@ -601,24 +604,25 @@
 1512988905 source:f:\repofp\tron_legancy\tron\tron\src\player.cpp
 	"Player.h"
 
-1512915059 f:\github\tron\include\player.h
+1513093723 f:\github\tron\include\player.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 
-1512914767 source:f:\github\tron\src\player.cpp
+1513093421 source:f:\github\tron\src\player.cpp
 	"Player.h"
 
-1512914250 source:f:\github\tron\src\control_options.cpp
+1513103268 source:f:\github\tron\src\control_options.cpp
 	"Control_Options.h"
 
-1512884107 f:\github\tron\include\control_options.h
+1513102563 f:\github\tron\include\control_options.h
 	<SFML/Graphics.hpp>
 	<iostream>
+	<MenuLayout.h>
 
 1512306257 source:f:\github\tron\src\playernameinput.cpp
 	"PlayerNameInput.h"
 
-1512883606 f:\github\tron\include\playernameinput.h
+1513093421 f:\github\tron\include\playernameinput.h
 
 1512988905 f:\repofp\tron_legancy\tron\tron\include\control_options.h
 	<SFML/Graphics.hpp>
@@ -695,4 +699,16 @@
 
 1513088872 source:d:\kuliah\semester 3\github\tron\src\player.cpp
 	"Player.h"
+
+1513103120 f:\github\tron\include\menulayout.h
+	"SFML/Graphics.hpp"
+	"SFML/Window.hpp"
+
+1513103535 source:f:\github\tron\src\menulayout.cpp
+	"MenuLayout.h"
+
+1513100558 source:f:\github\tron\src\default_1.cpp
+	"default_1.h"
+
+1513100568 f:\github\tron\include\default_1.h
 

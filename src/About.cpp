@@ -7,15 +7,11 @@ About::About(float width, float height)
 	{
 		// handle error
 	}
-
-	text.setFont(font);
-	text.setColor(sf::Color::Cyan);
-	text.setString("");
-    text1.setFont(font);
-    text1.setCharacterSize(15);
-	text1.setColor(sf::Color::White);
-	text1.setString("\n\nTekan Q untuk kembali ke main menu");
-    text1.setPosition(420,650);
+    text.setFont(font);
+    text.setCharacterSize(15);
+	text.setColor(sf::Color::White);
+	text.setString("\n\nTekan Q untuk kembali ke main menu");
+    text.setPosition(420,650);
 
 
 	menu[0].setColor(sf::Color::White);
@@ -42,8 +38,7 @@ About::~About()
 void About::draw(sf::RenderWindow &window)
 {
     window.draw(text);
-    window.draw(text1);
-	for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
+	for (int i = 0; i <3; i++)
 	{
         menu[i].setFont(font);
         menu[i].setCharacterSize(20);

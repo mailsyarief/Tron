@@ -2,14 +2,13 @@
 #define CONTROL_OPTIONS_H
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <MenuLayout.h>
 
-#define MAX_NUMBER_OF_ITEMS 2
-
-class Control_Options
+class Control_Options : public MenuLayout
 {
     public:
         Control_Options(float width, float height);
-        virtual ~Control_Options();
+        ~Control_Options();
         void draw(sf::RenderWindow &window);
         int GetPressedItem() { return selectedItemIndex; }
 
