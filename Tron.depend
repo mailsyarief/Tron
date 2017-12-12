@@ -629,3 +629,70 @@
 1512988905 source:f:\repofp\tron_legancy\tron\tron\src\control_options.cpp
 	"Control_Options.h"
 
+1513088872 source:d:\kuliah\semester 3\github\tron\main.cpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<time.h>
+	<iostream>
+	<cstring>
+	<sstream>
+	"About.h"
+	"Background_Audio.h"
+	"MainMenu.h"
+	"Menu.h"
+	"Options.h"
+	"Player.h"
+	"Control_Options.h"
+	"PlayerNameInput.h"
+
+1513088872 d:\kuliah\semester 3\github\tron\include\about.h
+	<SFML/Graphics.hpp>
+	<iostream>
+
+1513088872 d:\kuliah\semester 3\github\tron\include\background_audio.h
+	<SFML/Audio.hpp>
+
+1513088872 d:\kuliah\semester 3\github\tron\include\mainmenu.h
+	<SFML/Graphics.hpp>
+
+1513088872 d:\kuliah\semester 3\github\tron\include\menu.h
+	"SFML/Graphics.hpp"
+	<iostream>
+	<string.h>
+	<stdio.h>
+
+1513088872 d:\kuliah\semester 3\github\tron\include\options.h
+	"SFML/Graphics.hpp"
+	"Background_Audio.h"
+
+1513088872 d:\kuliah\semester 3\github\tron\include\player.h
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+
+1513088872 d:\kuliah\semester 3\github\tron\include\control_options.h
+	<SFML/Graphics.hpp>
+	<iostream>
+
+1513088872 d:\kuliah\semester 3\github\tron\include\playernameinput.h
+
+1513088872 source:d:\kuliah\semester 3\github\tron\src\about.cpp
+	"About.h"
+
+1513088872 source:d:\kuliah\semester 3\github\tron\src\background_audio.cpp
+	"Background_Audio.h"
+
+1513088872 source:d:\kuliah\semester 3\github\tron\src\control_options.cpp
+	"Control_Options.h"
+
+1513088872 source:d:\kuliah\semester 3\github\tron\src\mainmenu.cpp
+	"MainMenu.h"
+
+1513088872 source:d:\kuliah\semester 3\github\tron\src\menu.cpp
+	"Menu.h"
+
+1513088872 source:d:\kuliah\semester 3\github\tron\src\options.cpp
+	"Options.h"
+
+1513088872 source:d:\kuliah\semester 3\github\tron\src\player.cpp
+	"Player.h"
+

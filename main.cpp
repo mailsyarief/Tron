@@ -31,7 +31,7 @@ void ControlFunction();
 
 void a()
 {
-    speed = 0.5;
+    speed = 1;
     memset(field,0,sizeof(field));
     srand(time(0));
 
@@ -66,6 +66,17 @@ void a()
     Text text4("B = Game speed - 1 | N = Game Speed + 1",font,18);
     text4.setPosition(W-1000,H-30);
 
+    sf:Font comicsans;
+    comicsans.loadFromFile("comicsans.ttf");
+
+    std::ostringstream ssScore;
+    ssScore << "red : " << scoreA << " | white : " <<scoreB;
+
+    sf::Text lblScore;
+    lblScore.setCharacterSize(18);
+    lblScore.setPosition({ 10, 10 });
+    lblScore.setFont(comicsans);
+    lblScore.setString(ssScore.str());
 
 	bool Game=1;
 
@@ -188,7 +199,9 @@ void a()
 		window.draw(sprite);
 		window.draw(text3);
 		window.draw(text4);
+		window.draw(lblScore);
  		window.display();
+
 	}
 
 }
