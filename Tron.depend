@@ -18,7 +18,7 @@
 	"Control_Options.h"
 	"PlayerNameInput.h"
 
-1513105478 source:f:\github\tron\main.cpp
+1513107956 source:f:\github\tron\main.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<time.h>
@@ -557,7 +557,7 @@
 1513103774 source:f:\github\tron\src\about.cpp
 	"About.h"
 
-1513103760 f:\github\tron\include\about.h
+1513108053 f:\github\tron\include\about.h
 	<SFML/Graphics.hpp>
 	<iostream>
 	<MenuLayout.h>
@@ -700,7 +700,7 @@
 1513088872 source:d:\kuliah\semester 3\github\tron\src\player.cpp
 	"Player.h"
 
-1513103120 f:\github\tron\include\menulayout.h
+1513108053 f:\github\tron\include\menulayout.h
 	"SFML/Graphics.hpp"
 	"SFML/Window.hpp"
 
